@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int k, d1, d2;
+	cin >> k >> d1 >> d2;
+
+	int top = min(d1, d2);
+	int bottom = max(d1, d2);
+
+	// 높이의 제곱 = k(빗변)의 제곱 - ((bottom - top) / 2)의 제곱
+	// 출력 = 4 * 높이의 제곱
+	// 높이 = 4k(빗변)의 제곱 - ((bottom - top) / 2)의 제곱
+
+	int half = bottom - top;
+	int answer = 4 * k * k - half * half;
+
+	cout << answer;
+	
+	return 0;
+}
