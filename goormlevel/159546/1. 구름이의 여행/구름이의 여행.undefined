@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+queue<int> q;
+vector<int> visited(5001, -1);
+vector<vector<int>> v(5001);
+
+int n, m, k;
+
+void bfs() {
+	q.push(1);
+	visited[1] = 0;
+
+	while(!q.empty()) {
+		int nowNode = q.front();
+		q.pop();
+
+		for(int idx : v[nowNode]) {
+			if(visited[idx] == -1) {
+				q.push(idx);
+				visited[idx] = visited[nowNode] + 1;
+			}
+		}
+	}
+}
+
+int main() {
+	cin >> n >> m >> k;
+
+	int a, b;
+	for(int i = 0; i < m; i++) {
+		cin >> a >> b;
+		v[a].push_back(b);
